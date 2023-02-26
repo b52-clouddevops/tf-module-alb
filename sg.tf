@@ -35,7 +35,7 @@ resource "aws_security_group" "alb_public" {
 # Creates Security Group for Private ALB
 resource "aws_security_group" "alb_private" {
   name        = "roboshop-private-${var.ENV}-alb-sg"
-  description = "Allows http inbound traffic from internet only"
+  description = "Allows traffic only from public load-balancer"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
@@ -43,7 +43,7 @@ resource "aws_security_group" "alb_private" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]   # [] represent's list. 
+    cidr_blocks = [""]   # [] represent's list. 
   }
 
 #   ingress {
