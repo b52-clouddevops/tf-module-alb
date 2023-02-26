@@ -21,4 +21,6 @@ resource "aws_lb" "alb" {
 
 
 variable "ALB_NAME" {}
-variable ""
+variable "INTERNAL" {}
+varianle "ENV" {}
+
