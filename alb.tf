@@ -18,3 +18,7 @@ resource "aws_lb" "alb" {
     Environment = "production"
   }
 }
+
+
+variable "ALB_NAME" {}
+variable ""
