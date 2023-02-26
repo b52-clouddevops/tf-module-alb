@@ -1,6 +1,6 @@
 # Creates ALB
 resource "aws_lb" "alb" {
-  name               = "test-lb-tf"
+  name               = var.ALB_NAME
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb_sg.id]
