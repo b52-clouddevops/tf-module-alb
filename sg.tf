@@ -1,7 +1,7 @@
 # Creates Security Group
 resource "aws_security_group" "alb_public" {
   name        = "roboshop-public-${var.ENV}-alb-sg"
-  description = "Allows inbound traffic from intranet only"
+  description = "Allows http inbound traffic from internet only"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
@@ -28,6 +28,6 @@ resource "aws_security_group" "alb_public" {
   }
 
   tags = {
-    Name = "roboshop-${var.ENV}-mysql-sg"
+    Name = "roboshop-public-${var.ENV}-alb-sg"
   }
 }
