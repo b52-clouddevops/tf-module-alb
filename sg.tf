@@ -39,7 +39,7 @@ resource "aws_security_group" "alb_private" {
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
-    description = "Allow HTTP from Internet"
+    description = "Allow HTTP from Intranet Only"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -62,6 +62,6 @@ resource "aws_security_group" "alb_private" {
   }
 
   tags = {
-    Name = "roboshop-public-${var.ENV}-alb-sg"
+    Name = "roboshop-private-${var.ENV}-alb-sg"
   }
 }
