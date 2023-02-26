@@ -36,8 +36,8 @@ resource "aws_security_group" "alb_public" {
 
 # Creates Security Group for Private ALB
 resource "aws_security_group" "alb_private" {
-  count       = var.INTERNAL ? 0 : 1
-
+  count       = var.INTERNAL ? 1 : 0
+  
   name        = "roboshop-private-${var.ENV}-alb-sg"
   description = "Allows traffic only from public load-balancer"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
