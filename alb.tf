@@ -5,7 +5,7 @@ resource "aws_lb" "alb" {
   load_balancer_type = "application"
   security_groups    =  var.INTERNAL ? : aws_security_group.alb_private.id : aws_security_group.alb_public.id   
 // If this block is called by private-alb module , SG should be private-sg ; If this block is called by public-alb module, SG should be public-sg
-  subnets            = 
+  subnets            = var.INTERNAL ? :  : aws_security_group.alb_public.id  
 
   enable_deletion_protection = true
 
