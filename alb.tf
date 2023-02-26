@@ -8,7 +8,7 @@ resource "aws_lb" "alb" {
   subnets            = var.INTERNAL ? : data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS : data.terraform_remote_state.vpc.outputs.PUBLIC_SUBNET_IDS  
 
   tags = {
-    Environment = "production"
+    Environment = var.ALB_NAME
   }
 }
 
