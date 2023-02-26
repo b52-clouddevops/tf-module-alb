@@ -1,5 +1,7 @@
 # Creates Security Group for Public ALB
 resource "aws_security_group" "alb_public" {
+  count       = var.INTERNAL ? 
+
   name        = "roboshop-public-${var.ENV}-alb-sg"
   description = "Allows http inbound traffic from internet only"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
