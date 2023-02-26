@@ -7,8 +7,6 @@ resource "aws_lb" "alb" {
 // If this block is called by private-alb module , SG should be private-sg ; If this block is called by public-alb module, SG should be public-sg
   subnets            = var.INTERNAL ? : data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS : data.terraform_remote_state.vpc.outputs.PUBLIC_SUBNET_IDS  
 
-  enable_deletion_protection = true
-
   tags = {
     Environment = "production"
   }
