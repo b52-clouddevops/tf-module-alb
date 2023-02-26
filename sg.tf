@@ -1,12 +1,12 @@
 # Creates Security Group
 resource "aws_security_group" "alb_public" {
-  name        = "roboshop-public-${var.ENV}-mysql-sg"
+  name        = "roboshop-public-${var.ENV}-alb-sg"
   description = "Allow 3306 inbound traffic from intranet only"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
-    description = "Allow RDS From Local Network"
-    from_port   = var.RDS_MYSQL_PORT
+    description = "Allow HTTP from Internet"
+    from_port   = 80
     to_port     = var.RDS_MYSQL_PORT
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]   # [] represent's list. 
