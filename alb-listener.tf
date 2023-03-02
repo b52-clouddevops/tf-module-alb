@@ -1,4 +1,5 @@
-# Creates listener needed to ALB ; And for this listener, we have to created the rules
+# Creates listener needed to ALB ; And for this listener, we have to created the rules ;
+# Listener rules should come up from the appropriate component
 
 resource "aws_lb_listener" "private" {
   count             = var.INTERNAL ? 1 : 0
