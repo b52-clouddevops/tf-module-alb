@@ -9,11 +9,12 @@ resource "aws_lb_listener" "private" {
   protocol          = "HTTP"
 
   default_action {
-    type = "fixed-response"
+        type = "fixed-response"
 
         fixed_response {
         content_type = "text/plain"
         message_body = "I am operational"
         status_code  = "200"
         }
+   }
 }
