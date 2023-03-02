@@ -11,9 +11,9 @@ resource "aws_lb_listener" "private" {
   default_action {
     type = "fixed-response"
 
-    fixed_response {
-      content_type = "text/plain"
-      message_body = "I am operational"
-      status_code  = "200"
-    }
+        fixed_response {
+        content_type = "text/plain"
+        message_body = "I am operational"
+        status_code  = "200"
+        }
 }
