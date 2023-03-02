@@ -1,4 +1,8 @@
+# Creates listener needed to ALB
+
 resource "aws_lb_listener" "front_end" {
+  count             = 
+
   load_balancer_arn = aws_lb.front_end.arn
   port              = "443"
   protocol          = "HTTPS"
