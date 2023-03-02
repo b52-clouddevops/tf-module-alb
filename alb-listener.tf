@@ -1,4 +1,4 @@
-# Creates listener needed to ALB
+# Creates listener needed to ALB ; And for this listener, we have to created the rules
 
 resource "aws_lb_listener" "private" {
   count             = var.INTERNAL ? 1 : 0
